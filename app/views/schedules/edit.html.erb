@@ -1,0 +1,36 @@
+<h2>スケジュール編集</h2>
+
+<%= form_with model: @schedule do |form|%>
+<table border="1" width="500">
+  <tr>
+    <th>タイトル</th>
+    <td><%= form.text_field :title %></td>
+  </tr>
+  <tr>
+       <th>開始日</th>
+       <td><%= form.date_field :start_date %></td>
+  </tr>
+  <tr>
+    <th>終了日</th>
+       <td><%= form.date_field :end_date %></td>
+  </tr>
+  <tr>
+    <th>終日</th>
+       <td><%= form.check_box :all_day %></td>
+  </tr>
+  <tr>
+    <th>スケジュールメモ</th>
+       <td><%= form.text_area :memo %></td>
+  </tr>
+   </table>
+   <br>
+  <button>スケジュールの編集を完了する</button>
+   <br>
+    <a href="/schedules">スケジュール一覧に戻る</a>
+<% end %>
+
+
+
+    <footer>
+      <h2>現在の日時 : <%= Date.current.strftime('%Y/%m/%d') %></h2>
+    </footer>
