@@ -1,0 +1,34 @@
+<h2>スケジュール一覧</h2>
+<table border="1" width="800">
+  <thead>
+    <th>ID</th>
+    <th>タイトル</th>
+    <th>開始日</th>
+    <th>終了日</th>
+    <th>終日</th>
+    <th>スケジュール更新日時</th>
+    <th>確認</th>
+    <th>編集</th>
+    <th>削除</th>
+  </thead>
+  <tbody>
+  <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.id %></td>
+        <td><%= schedule.title %></td>
+        <td><%= schedule.start_date.strftime('%Y/%m/%d') %></td>
+        <td><%= schedule.end_date.strftime('%Y/%m/%d') %></td>
+        <td><%= '○' if schedule.all_day %></td>
+        <td><%= schedule.created_at.strftime('%Y/%m/%d') %></td>
+        <td><a href="/schedules/<%= schedule.id %>">確認</a></td>
+        <td><a href="/schedules/<%= schedule.id %>/edit">編集</a></td>
+        <td><%= button_to '削除', schedule, method: :delete, form: {data: {turbo_confirm: '本当に削除しますか？'}} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+    <a href="/schedules/new">スケジュール新規登録</a>
+
+    <footer>
+      <h2>現在の日時 : <%= Date.current.strftime('%Y/%m/%d') %>    スケジュール合計 : <%= @schedules.size %></h2>
+    </footer>

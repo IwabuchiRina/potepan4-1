@@ -8,9 +8,25 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+<style>
+header {
+  background-color: #f00;
+  color: #fff;
+}
+table {
+  background-color: #FFC0CB;
+}
+footer {
+  background-color: #f00;
+  color: #fff;
+}
+</style>
   </head>
 
   <body>
+    <header>
+      <h1>Ruby on Rails スケジュール管理アプリ</h1>
+    </header>
     <%= yield %>
   </body>
 </html>
